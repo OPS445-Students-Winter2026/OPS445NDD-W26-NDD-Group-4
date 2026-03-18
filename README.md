@@ -1,5 +1,5 @@
 # <term> <year> Assignment 2
 
-## Project Name:
+## Project Name: Rock Paper Scissors
 
 ## Description:
