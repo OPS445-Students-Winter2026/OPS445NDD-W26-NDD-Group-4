@@ -21,7 +21,7 @@ def show_info():
     print('   - Draw = randomly gives either player 1 point')
     print('First player to reach the target score wins.')
 
-# Shows current points between players
+# Checks if the number of points to win the game argument is greater than 2. If yes return true
 def validate_points(points):
     return points > 2
 
@@ -37,7 +37,7 @@ def number_to_choose(number):
 # Function to get valid user input
 def get_user_choice():
 
-    # Ask user for input
+    # Ask user for input (automatically changes to lowercase even if user inputs uppercase)
     choice = input("Enter rock, paper, or scissors: ").lower()
 
     # Keep asking until valid
@@ -47,7 +47,7 @@ def get_user_choice():
 
     return choice
 
-# Used to get computer's choice randomly
+# Used to get computer's choice randomly using randint
 def get_computer_choice():
     random_number = random.randint(1, 3)
     return number_to_choose(random_number)
@@ -80,6 +80,15 @@ def get_result(player, computer):
                 
 #Main fucntion for the game
 def main():
+
+# This section sets up command-line arguments using argparse.
+# It allows the user to run the program with inputs directly from the terminal which we will use for our game
+# - "-i" is an argument that displays the game information about how the game is played. (Optional)
+# - "points" is an integer argument that represents the target score needed to win the game.
+# - "choice" is an argument where the user enters their move, in this case - rock, paper, or scissors.
+#
+# The parser reads the user’s input from the command line and stores the values in the variable called "args",
+# which we can then use throughout the program (e.g., args.i, args.points, args.choice).
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", action="store_true", help="show game info")
